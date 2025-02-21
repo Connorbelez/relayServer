@@ -7,9 +7,10 @@ const privateKeyPath = path.resolve(__dirname, './secrets/private.pem');
 const publicKeyPath = path.resolve(__dirname, './secrets/public.pem');
 
 // Read the keys from the files
-const privateKey = readFileSync(privateKeyPath, 'utf8');
-const publicKey = readFileSync(publicKeyPath, 'utf8');
-
+// const privateKey = readFileSync(privateKeyPath, 'utf8');
+// const publicKey = readFileSync(publicKeyPath, 'utf8');
+const publicKey = process.env.PUBLIC_KEY || ""
+const privateKey = process.env.PRIVATE_KEY || ""
 export { privateKey, publicKey };
 
 export function generateToken(apiKey: string): string {
